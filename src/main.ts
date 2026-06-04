@@ -145,62 +145,75 @@ const chatbotInput = document.getElementById('chatbot-input') as HTMLInputElemen
 
 // Chatbot knowledge base
 const chatResponses: Record<string, string> = {
-  'nr-1': `A NR-1 (Norma Regulamentadora nº 1) foi atualizada pelo Ministério do Trabalho para incluir a gestão de riscos psicossociais como obrigatória no PGR (Programa de Gerenciamento de Riscos). Desde 26 de maio de 2026, todas as empresas com funcionários CLT devem identificar, avaliar e gerenciar fatores como estresse, assédio, sobrecarga de trabalho e falta de autonomia. 
+  'modelo': `O modelo biopsicossocial é a abordagem científica mais completa para entender a saúde humana. Ele avalia 3 dimensões:
 
-📋 Nossa plataforma automatiza todo esse processo com inteligência artificial.`,
+🔴 **Biológica** — corpo, sono, alimentação, doenças, dores
+🔵 **Psicológica** — mente, emoções, ansiedade, estresse, autoestima
+🟢 **Social** — família, trabalho, renda, moradia, suporte social
 
-  'multa': `Sim! A fiscalização já é punitiva desde 26/05/2026. As multas podem variar de **R$ 2.396 a R$ 6.708 por infração**, podendo ser aplicadas por funcionário afetado. Além disso, a empresa pode ser responsabilizada civilmente por danos à saúde mental dos colaboradores.
+É reconhecido pela OMS (através da CIF), pelo INSS e pelo Judiciário brasileiro.`,
 
-⚠️ Cada dia sem adequação é um risco real. Nossa plataforma resolve isso rapidamente.`,
+  'avaliacao': `A avaliação funciona em 3 etapas simples:
 
-  'plataforma': `Nossa plataforma funciona em 3 passos simples:
+1️⃣ **Questionário** — Responda às perguntas validadas das 3 dimensões (≈15 minutos)
+2️⃣ **Mapa de Saúde** — Nossa IA processa e gera seu relatório personalizado
+3️⃣ **Recomendações** — Ações concretas e conexão com especialistas se necessário
 
-1️⃣ **Cadastro** — Crie sua conta e adicione os setores da empresa
-2️⃣ **Questionários** — Envie o link anônimo para seus colaboradores
-3️⃣ **Relatório IA** — Em até 48h, receba o relatório completo pronto para o PGR
+Totalmente anônimo se preferir. No celular ou computador.`,
 
-Tudo automatizado, sem necessidade de ser especialista em SST.`,
+  'gratuito': `Sim! A **avaliação inicial é 100% gratuita**, sem cartão de crédito.
 
-  'preco': `Temos planos para todos os tamanhos de empresa:
+Planos disponíveis:
+🆓 **Grátis** — 1 avaliação/trimestre
+⭐ **Essencial** — R$ 29/mês (avaliações ilimitadas + plano de ação por IA)
+👨‍⚕️ **Profissional** — R$ 97/mês (laudos INSS/Judiciário + marketplace)
 
-💼 **Starter** — R$ 197/mês (até 50 colaboradores)
-🏢 **Business** — R$ 497/mês (até 200 colaboradores)  
-🏗️ **Enterprise** — R$ 997/mês (ilimitado + consultoria IA)
+Comece sem compromisso e evolua conforme sua necessidade.`,
 
-Todos incluem avaliação inicial gratuita, sem cartão de crédito! Quer começar?`,
+  'profissional': `Para profissionais de saúde (psicólogos, médicos, assistentes sociais), oferecemos:
 
-  'lgpd': `Sim, nossa plataforma é 100% compatível com a LGPD! 🔒
+📋 **Laudos estruturados** em formato CIF para o INSS
+⚖️ **Laudos para perícias** judiciais
+👥 **Dashboard** de acompanhamento de pacientes
+🏥 **Perfil no marketplace** — seja encontrado por usuários da plataforma
 
-• Todas as respostas são anônimas — ninguém identifica quem respondeu
-• Dados criptografados em trânsito e em repouso
-• Não coletamos dados pessoais dos colaboradores
-• Você tem controle total sobre seus dados`,
+Tudo a partir de R$ 97/mês. Quer cadastrar seu consultório?`,
 
-  'default': `Ótima pergunta! Para um atendimento mais personalizado, sugiro que você se cadastre em nossa lista de acesso antecipado. Nossa equipe entrará em contato rapidamente.
+  'lgpd': `Sim, 100% em conformidade com a LGPD! 🔒
 
-Posso ajudar com algo mais específico sobre:
-• A NR-1 e obrigatoriedade
-• Como funciona nossa plataforma
-• Planos e preços
-• Segurança e LGPD`
+• Avaliação completamente anônima se preferir
+• Nenhum dado vincula resposta a pessoa específica
+• Dados criptografados e armazenados no Brasil
+• Você controla e pode deletar seus dados a qualquer momento`,
+
+  'default': `Que ótimo que está buscando entender melhor sua saúde! 💙
+
+Posso te ajudar com:
+• **O que é** o modelo biopsicossocial
+• **Como funciona** a avaliação
+• **Preços** e planos disponíveis
+• **Para profissionais** de saúde
+• **Privacidade** e proteção de dados
+
+O que deseja saber?`
 };
 
 function getBotResponse(message: string): string {
   const lower = message.toLowerCase();
   
-  if (lower.includes('nr-1') || lower.includes('nr1') || lower.includes('norma') || lower.includes('o que é')) {
-    return chatResponses['nr-1'];
+  if (lower.includes('modelo') || lower.includes('o que é') || lower.includes('biopsicossocial') || lower.includes('cif') || lower.includes('oms')) {
+    return chatResponses['modelo'];
   }
-  if (lower.includes('multa') || lower.includes('fiscal') || lower.includes('penalid') || lower.includes('pode ser')) {
-    return chatResponses['multa'];
+  if (lower.includes('funciona') || lower.includes('avaliação') || lower.includes('avaliacao') || lower.includes('como') || lower.includes('mapa')) {
+    return chatResponses['avaliacao'];
   }
-  if (lower.includes('funciona') || lower.includes('plataforma') || lower.includes('como')) {
-    return chatResponses['plataforma'];
+  if (lower.includes('gratu') || lower.includes('preço') || lower.includes('preco') || lower.includes('valor') || lower.includes('quanto') || lower.includes('plano') || lower.includes('custo')) {
+    return chatResponses['gratuito'];
   }
-  if (lower.includes('custo') || lower.includes('preço') || lower.includes('preco') || lower.includes('valor') || lower.includes('quanto') || lower.includes('plano')) {
-    return chatResponses['preco'];
+  if (lower.includes('profissional') || lower.includes('psicólogo') || lower.includes('medico') || lower.includes('laudo') || lower.includes('inss') || lower.includes('judici')) {
+    return chatResponses['profissional'];
   }
-  if (lower.includes('lgpd') || lower.includes('segur') || lower.includes('dado') || lower.includes('anônim') || lower.includes('anonim')) {
+  if (lower.includes('lgpd') || lower.includes('segur') || lower.includes('dado') || lower.includes('anônim') || lower.includes('anonim') || lower.includes('privacidade')) {
     return chatResponses['lgpd'];
   }
   
@@ -268,7 +281,7 @@ function initScrollAnimations() {
   
   // Add fade-in class to elements
   const animateElements = document.querySelectorAll(
-    '.problema-card, .solucao-card, .step, .plano-card, .proof-item, .faq-item, .section-header'
+    '.modelo-card, .publico-card, .step, .plano-card, .stat-item, .faq-item, .section-header, .mapa-preview'
   );
   
   animateElements.forEach((el, index) => {
