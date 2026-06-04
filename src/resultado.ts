@@ -72,9 +72,8 @@ function render() {
   }
 
   const data: ResultData = JSON.parse(raw);
-  const { scores, overall } = data;
+  const { scores } = data;
   const bioLabel   = getLabel(scores.bio);
-  const bioColor   = getColor(scores.bio);
   const bioActions = getBioActions(scores.bio);
   const bioInterp  = getBioInterpretation(scores.bio);
   const date       = new Date(data.date).toLocaleDateString('pt-BR');
